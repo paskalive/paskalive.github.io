@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Video Stream Player</title>
-    <script src="https://cdn.bootcss.com/flv.js/1.5.0/flv.min.js"></script>
+    <title>FLV Video Stream Player</title>
+    <script src="https://cdn.jsdelivr.net/npm/flv.js@1.5.0/dist/flv.min.js"></script>
 </head>
 <body>
-    <video id="videoElement" controls style="width: 100%; max-width: 600px;"></video>
+    <h1>FLV Live Stream</h1>
+    <video id="videoElement" controls autoplay style="width: 100%; max-width: 600px;"></video>
     <script>
         if (flvjs.isSupported()) {
             var videoElement = document.getElementById('videoElement');
@@ -15,10 +16,16 @@
                 type: 'flv',
                 url: 'http://91.92.242.182:8000/live/lupsuttaja.flv' // Replace with your stream URL
             });
+
+            flvPlayer.on(flvjs.Events.ERROR, function(e) {
+                console.error('FLV.js Error:', e);
+            });
+
             flvPlayer.attachMediaElement(videoElement);
             flvPlayer.load();
             flvPlayer.play();
         } else {
+            document.body.innerHTML = '<p>Your browser does not support FLV.js.</p>';
             console.error('FLV.js is not supported in this browser.');
         }
     </script>
