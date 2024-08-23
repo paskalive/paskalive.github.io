@@ -2,19 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HLS Video Stream Player</title>
-    <!-- Video.js CSS -->
-    <link href="https://vjs.zencdn.net/7.11.4/video-js.css" rel="stylesheet" />
 </head>
 <body>
-    <h1>HLS Live Stream</h1>
-    <!-- Video.js Player -->
-    <video id="videoElement" class="video-js vjs-default-skin" controls autoplay style="width: 100%; max-width: 600px;">
-        <source src="http://91.92.242.182:8000/live/lupsuttaja.m3u8" type="application/x-mpegURL"> <!-- Replace with your HLS stream URL -->
-    </video>
-
-    <!-- Video.js JavaScript -->
-    <script src="https://vjs.zencdn.net/7.11.4/video.js"></script>
+    <video id="videoElement" controls></video>
+    <script src="https://cdn.bootcss.com/flv.js/1.5.0/flv.min.js"></script>
+    <script>
+        if (flvjs.isSupported()) {
+            var videoElement = document.getElementById('videoElement');
+            var flvPlayer = flvjs.createPlayer({
+                type: 'flv',
+                url: 'https://ebinlauta.org:8443/live/lupsuttaja.flv'
+            });
+            flvPlayer.attachMediaElement(videoElement);
+            flvPlayer.load();
+            flvPlayer.play();
+        }
+    </script>
 </body>
 </html>
+
