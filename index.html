@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Stream Player</title>
+    <script src="https://cdn.bootcss.com/flv.js/1.5.0/flv.min.js"></script>
+</head>
+<body>
+    <video id="videoElement" controls style="width: 100%; max-width: 600px;"></video>
+    <script>
+        if (flvjs.isSupported()) {
+            var videoElement = document.getElementById('videoElement');
+            var flvPlayer = flvjs.createPlayer({
+                type: 'flv',
+                url: 'http://localhost:8000/live/lupsuttaja.flv' // Replace with your stream URL
+            });
+            flvPlayer.attachMediaElement(videoElement);
+            flvPlayer.load();
+            flvPlayer.play();
+        } else {
+            console.error('FLV.js is not supported in this browser.');
+        }
+    </script>
+</body>
+</html>
