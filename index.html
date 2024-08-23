@@ -3,31 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FLV Video Stream Player</title>
-    <script src="https://cdn.jsdelivr.net/npm/flv.js@1.5.0/dist/flv.min.js"></script>
+    <title>HLS Video Stream Player</title>
+    <!-- Video.js CSS -->
+    <link href="https://vjs.zencdn.net/7.11.4/video-js.css" rel="stylesheet" />
 </head>
 <body>
-    <h1>FLV Live Stream</h1>
-    <video id="videoElement" controls autoplay style="width: 100%; max-width: 600px;"></video>
-    <script>
-        if (flvjs.isSupported()) {
-            var videoElement = document.getElementById('videoElement');
-            var flvPlayer = flvjs.createPlayer({
-                type: 'flv',
-                url: 'http://91.92.242.182:8000/live/lupsuttaja.flv' // Replace with your stream URL
-            });
+    <h1>HLS Live Stream</h1>
+    <!-- Video.js Player -->
+    <video id="videoElement" class="video-js vjs-default-skin" controls autoplay style="width: 100%; max-width: 600px;">
+        <source src="http://91.92.242.182:8000/live/lupsuttaja.m3u8" type="application/x-mpegURL"> <!-- Replace with your HLS stream URL -->
+    </video>
 
-            flvPlayer.on(flvjs.Events.ERROR, function(e) {
-                console.error('FLV.js Error:', e);
-            });
-
-            flvPlayer.attachMediaElement(videoElement);
-            flvPlayer.load();
-            flvPlayer.play();
-        } else {
-            document.body.innerHTML = '<p>Your browser does not support FLV.js.</p>';
-            console.error('FLV.js is not supported in this browser.');
-        }
-    </script>
+    <!-- Video.js JavaScript -->
+    <script src="https://vjs.zencdn.net/7.11.4/video.js"></script>
 </body>
 </html>
