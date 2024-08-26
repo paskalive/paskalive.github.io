@@ -1,3 +1,72 @@
-<script>
-    window.location.href = "https://ebinlauta.org/upi";
-</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirect Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        .donation-section {
+            margin-top: 30px;
+        }
+        .monero-address {
+            font-family: monospace;
+            font-size: 14px;
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-radius: 5px;
+            word-wrap: break-word;
+            text-align: left;
+            margin: 0 auto;
+            max-width: 90%;
+        }
+        .monero-address strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .monero-address hr {
+            margin: 20px 0;
+            border: none;
+            border-top: 1px solid #ccc;
+        }
+    </style>
+    <script>
+        function redirectToPage() {
+            window.location.href = "https://ebinlauta.org/upi";
+        }
+    </script>
+</head>
+<body>
+    <p>Tästä pääset striimiin:</p>
+    <button onclick="redirectToPage()">https://ebinlauta.org/upi</button>
+
+    <div class="donation-section">
+        <h3>Donatea Ebinlaudalle tai striimin ylläpitoon?</h3>
+        <p>Jos haluat tukea ja pitää striimit tulilla. Tukekaa ensisijaisesti Ebinlautaa. T. Lupsuttaja. Lupsuttajalle lahjoittaessa rahat menevät varapalvelimen ostamiseen ja sen jälkeen kehittämiseen.</p>
+        <div class="monero-address">
+            <strong>EBINLAUTA</strong> 
+            <p>Rahet menee Ebinlaudan kehittämiseen ja striimiserverin hostaamiseen:</p>
+            <p>49xDTdCSCzHPhVywaPehut6B1nA3Jmxoy8QjTcra13hYRyQ7SKg4NBuS78MrjwYdLKSq9adTQtn7WU15r8JXTf9PA8Sek5N</p>
+
+            <hr>
+
+            <strong>LUPSUTTAJA</strong>
+            <p>Rahet menee striimiserverin ja varapalvelimen kehittämiseen ja jälkimmäisen hostaamiseen:</p>
+            <p>4A5LHY1RtzsJiG9szqz9ttSrgStTNCp9HH4UrMZ6yuBGYDj3TUY8BpG1EfCNd2M8YhEa9wmmUTuUJUJCvR6FXzK7TJE2Ymr</p>
+        </div>
+    </div>
+</body>
+</html>
